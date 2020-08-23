@@ -31,6 +31,22 @@ yarn build
 yarn serve
 ```
 
+### Set env variables
+
+The service tries to read env variables from a file named `.env`. Copy `.env.dev` to `.env` to run the service with a default configuration:
+
+```sh
+ln -s .env.dev .env
+```
+
+### Set up the database
+
+```sh
+TMPDIR=/private$TMPDIR docker-compose up -d # if not using MacOSX omit `TMPDIR=...` env var set
+yarn migrate
+yarn seed
+```
+
 ## Other useful scripts
 
 `yarn test` for running tests with jest

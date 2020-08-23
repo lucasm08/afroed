@@ -3,8 +3,11 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import next from 'next';
+import Knex from 'knex';
+import { Model } from 'objection';
 
 import { config } from './config';
+import { configurePostgres } from './utils/pg-types';
 import { registerRoutes, registerErrorHandler } from './routes';
 
 const router: express.Router = require('express-promise-router')();
@@ -17,12 +20,7 @@ const reqHandler = frontApp.getRequestHandler();
 frontApp
   .prepare()
   .then(() => {
-    app
-      .use(morgan('dev'))
-      .use(cors())
-      .use(bodyParser.json())
-      .use(router)
-      .use(registerErrorHandler);
+    app.use(morgan('dev')).use(cors()).use(bodyParser.json()).use(router).use(registerErrorHandler);
 
     registerRoutes(router);
 
@@ -40,3 +38,8 @@ frontApp
     console.error(ex.stack);
     process.exit(1);
   });
+
+configurePostgres();
+
+export const knex = Knex(config.knex);
+Model.knex(knex);

@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+  postgres:
+    image: postgres:10.5
+    ports:
+      - 15432:5432
+    environment:
+      POSTGRES_PASSWORD: afroed
+      POSTGRES_DB: afroed_dev
