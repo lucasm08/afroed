@@ -24,6 +24,19 @@ export const config = {
     ...knexSnakeCaseMappers(),
   },
 
+  i18n: {
+    backend: {
+      loadPath: `${__dirname}/i18n/{{lng}}/{{ns}}.json`,
+    },
+    debug: process.env.NODE_ENV !== 'production',
+    detection: {
+      order: ['querystring', 'cookie'],
+      caches: ['cookie'],
+    },
+    preload: ['fr', 'en'],
+    saveMissing: true,
+    fallbackLng: ['fr'],
+  },
   // for managing setup and teardown of DB's during tests
   knexDbManager: {
     superUser: process.env.DB_SUPERUSER_USER || 'postgres',

@@ -4,8 +4,10 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import next from 'next';
 import Knex from 'knex';
+import i18next from 'i18next';
+import i18nextMiddleware from 'i18next-express-middleware';
+import Backend from 'i18next-node-fs-backend';
 import { Model } from 'objection';
-
 import { config } from './config';
 import { configurePostgres } from './utils/pg-types';
 import { registerRoutes, registerErrorHandler } from './routes';
@@ -17,10 +19,14 @@ export const app = express();
 const frontApp = next({ dev: config.isDev });
 const reqHandler = frontApp.getRequestHandler();
 
+i18next.use(i18nextMiddleware.LanguageDetector).use(Backend).init(config.i18n);
+
 frontApp
   .prepare()
   .then(() => {
     app.use(morgan('dev')).use(cors()).use(bodyParser.json()).use(router).use(registerErrorHandler);
+
+    app.use(i18nextMiddleware.handle(i18next));
 
     registerRoutes(router);
 
