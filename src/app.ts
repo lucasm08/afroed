@@ -5,7 +5,7 @@ import cors from 'cors';
 import next from 'next';
 import Knex from 'knex';
 import i18next from 'i18next';
-import i18nextMiddleware from 'i18next-express-middleware';
+import i18nextMiddleware, { I18NextRequest } from 'i18next-express-middleware';
 import Backend from 'i18next-node-fs-backend';
 import { Model } from 'objection';
 import { config } from './config';
@@ -33,6 +33,10 @@ frontApp
     app.get('/folder', async (req, res) => {
       // We can control a specific next.js route and add logic before rendering it
       frontApp.render(req, res, '/folder');
+    });
+
+    app.get('/test', async (req, res) => {
+      return res.json((<I18NextRequest>req).i18n.t('optMsg', { otpCode: 12345 }));
     });
 
     app.get('*', (req, res) => {
