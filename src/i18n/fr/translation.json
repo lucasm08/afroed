@@ -1,3 +1,3 @@
 {
-  "optMsg": "Merci de vous êtes enregistrer avec AfroEd. Voici votre code OTP: {{ otpCode }}"
+  "optMsg": "Merci de vous être enregistré(e) avec AfroEd. Voici votre code OTP: {{ otpCode }}"
 }
