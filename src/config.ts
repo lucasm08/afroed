@@ -35,7 +35,7 @@ export const config = {
     },
     preload: ['fr', 'en'],
     saveMissing: true,
-    fallbackLng: ['fr'],
+    fallbackLng: ['en'],
   },
   // for managing setup and teardown of DB's during tests
   knexDbManager: {

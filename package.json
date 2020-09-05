@@ -23,14 +23,15 @@
   "devDependencies": {
     "@types/body-parser": "^1.17.0",
     "@types/cors": "^2.8.5",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.0",
+    "@types/i18next-node-fs-backend": "^2.1.0",
     "@types/jest": "^24.0.17",
     "@types/morgan": "^1.7.36",
     "@types/next": "^8.0.6",
     "@types/nock": "^10.0.3",
-    "@types/dotenv": "^8.2.0",
     "@types/pg": "^7.14.4",
-    "@types/i18next-node-fs-backend": "^2.1.0",
+    "@types/twilio": "^2.11.0",
     "jest": "^24.8.0",
     "lodash": "^4.17.15",
     "nock": "^10.0.6",
@@ -59,7 +60,8 @@
     "objection": "^2.2.3",
     "pg": "^8.3.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "twilio": "^3.49.1"
   },
   "jest": {
     "preset": "ts-jest",

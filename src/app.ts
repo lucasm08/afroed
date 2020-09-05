@@ -16,8 +16,7 @@ const router: express.Router = require('express-promise-router')();
 
 export const app = express();
 
-const frontApp = next({ dev: config.isDev });
-const reqHandler = frontApp.getRequestHandler();
+export const frontApp = next({ dev: config.isDev });
 
 i18next.use(i18nextMiddleware.LanguageDetector).use(Backend).init(config.i18n);
 
@@ -25,23 +24,10 @@ frontApp
   .prepare()
   .then(() => {
     app.use(morgan('dev')).use(cors()).use(bodyParser.json()).use(router).use(registerErrorHandler);
-
     app.use(i18nextMiddleware.handle(i18next));
-
     registerRoutes(router);
-
-    app.get('/folder', async (req, res) => {
-      // We can control a specific next.js route and add logic before rendering it
-      frontApp.render(req, res, '/folder');
-    });
-
     app.get('/test', async (req, res) => {
       return res.json((<I18NextRequest>req).i18n.t('optMsg', { otpCode: 12345 }));
-    });
-
-    app.get('*', (req, res) => {
-      // This renders the rest of the routes
-      return reqHandler(req, res);
     });
   })
   .catch((ex: any) => {
