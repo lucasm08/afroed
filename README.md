@@ -52,3 +52,15 @@ yarn seed
 `yarn test` for running tests with jest
 
 `yarn lint` for running tslint
+
+## Environment variables
+
+DB_CONNECTION: database connection uri
+
+PORT: The http port. Default is 3001, a change will have to be reflected in k8s deployment.yml
+
+VERIFY_SERVICE_SID: Twilio Verify Service SID
+
+TWILIO_ACCOUNT_SID: Twilio Account SID
+
+TWILIO_AUTH_TOKEN: Twilio Auth Token
