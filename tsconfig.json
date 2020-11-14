@@ -2,7 +2,10 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
@@ -19,5 +22,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve"
-  }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
