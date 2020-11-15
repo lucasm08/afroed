@@ -60,7 +60,7 @@ exports.up = (knex: Knex) => {
           table.string('name').notNullable();
           table.string('type').notNullable();
           table.text('description');
-          table.timestamp('deadline');
+          table.bigInteger('deadline').unsigned();
           table.string('phoneNumber1');
           table.integer('phoneNumber1Code');
           table.string('phoneNumber2');
@@ -81,7 +81,7 @@ exports.up = (knex: Knex) => {
           table.string('studentId').notNullable().index();
           table.string('firstName').notNullable();
           table.string('lastName').notNullable();
-          table.timestamp('dateOfBirth');
+          table.bigInteger('dateOfBirth').unsigned();
           table.string('gender');
           table.string('city');
           table.string('address');
@@ -116,6 +116,7 @@ exports.up = (knex: Knex) => {
           table.integer('opportunityId').unsigned().references('id').inTable('opportunities').notNullable();
           table.boolean('followed');
           table.timestamp('createdAt').notNullable().defaultTo(knex.raw('now()'));
+          table.bigInteger('updatedDate');
         })
       )
       .then(() =>
@@ -164,7 +165,6 @@ exports.down = (knex: Knex) => {
     .then(() => knex.schema.dropTableIfExists('students'))
     .then(() => knex.schema.dropTableIfExists('opportunities'))
     .then(() => knex.schema.dropTableIfExists('partners'))
-    .then(() => knex.schema.dropTableIfExists('revokedToken'))
     .then(() => knex.schema.dropTableIfExists('fields'))
     .then(() => knex.schema.dropTableIfExists('languages'))
     .then(() => knex.schema.dropTableIfExists('countries'))

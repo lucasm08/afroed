@@ -199,7 +199,7 @@ const PARTNERS = [
     phoneNumber1: '22494145',
     phoneNumber1Code: 225,
     phoneNumber2: '',
-    phoneNumber2Code: '',
+    phoneNumber2Code: null,
     email: 'educationusa@state.gov',
     webLink: 'https://educationusa.state.gov/',
     logo: '',
@@ -213,14 +213,14 @@ const OPPORTUNITIES = [
     opportunityId: IdGenerator('OPP'),
     name: 'African Leadership Academy',
     type: 'Scholarship',
-    descritption: `
+    description: `
   The African Leadership Academy is a residential, secondary
   institution located in the outskirts of Johannesburg, 
   South Africa. It is dedicated to 16 to 19-year-olds from 
   Africa and the rest of the world, with alumni from 46 countries
   currently.
   `,
-    deadline: 1605147529,
+    deadline: 1609459200,
     phoneNumber1: '116993000',
     phoneNumber1Code: 27,
     phoneNumber2: '',
@@ -237,7 +237,7 @@ const OPPORTUNITIES = [
     opportunityId: IdGenerator('OPP'),
     name: 'Aga Khan Academy',
     type: 'Scholarship',
-    descritption: `
+    description: `
     The Aga Khan Academies are a programme 
     of the Aga Khan Development Network 
     (AKDN). The AKDN is a group of development 
@@ -249,7 +249,7 @@ const OPPORTUNITIES = [
     AKDN programmes are conducted without regard to faith, 
     origin or gender
   `,
-    deadline: 1605147529,
+    deadline: 1609459200,
     phoneNumber1: '116993000',
     phoneNumber1Code: 27,
     phoneNumber2: '',
@@ -272,7 +272,7 @@ const STUDENTS = [
     dateOfBirth: 879302564,
     gender: 'M',
     city: 'Abidjan',
-    addresss: '2 Plateaux Mobile',
+    address: '2 Plateaux Mobile',
     lang: 'en',
     phoneNumber: '08778597',
     phoneNumberCode: 225,
@@ -356,7 +356,7 @@ const OPPORTUNITIESFIELDS = [
   },
   {
     fieldId: 9,
-    opportunityId: 22,
+    opportunityId: 2,
   },
 ];
 
