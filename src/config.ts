@@ -30,12 +30,12 @@ export const config = {
     },
     debug: process.env.NODE_ENV !== 'production',
     detection: {
-      order: ['querystring', 'cookie'],
+      order: ['header', 'querystring', 'cookie'],
       caches: ['cookie'],
     },
     preload: ['fr', 'en'],
     saveMissing: true,
-    fallbackLng: ['fr'],
+    fallbackLng: ['en'],
   },
   // for managing setup and teardown of DB's during tests
   knexDbManager: {
