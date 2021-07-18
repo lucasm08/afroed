@@ -1,0 +1,21 @@
+{
+  "name": "afroed",
+  "version": "1.0.0",
+  "description": "AfroEd monorepo",
+  "main": "index.js",
+  "author": "Lucas Gompou <lucas.gompou@afroed.xyz>",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "rimraf dist *.tsbuildinfo"
+  },
+  "volta": {
+    "node": "14.17.2",
+    "yarn": "1.22.10"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
